@@ -4,7 +4,11 @@ module.exports = {
     return queryInterface.createTable('ParkingDetails', {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      parkingId: {
         type: Sequelize.STRING
       },
       memberId: {

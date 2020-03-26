@@ -24,7 +24,10 @@ class VehicleController {
         const message = req.app.locals.message
         delete req.app.locals.message
         const tag = req.query.pd
-        const id = +req.query.id.trim()
+        const id = +req.query.id
+        if (id){
+            id = +req.query.id.trim()
+        }
         if(tag) {
             req.app.locals.id = id
             req.app.locals.tag = true

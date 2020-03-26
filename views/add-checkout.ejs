@@ -48,13 +48,17 @@
         border-radius: 5px;
         background-color: #f2f2f2;
         padding: 20px;
-        width: 100%;
+        width: 50%;
         }
 
         h1 {
             font-size: 35px;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             text-align: center;
+        }
+
+        form {
+            width: 100%;
         }
 
         #btn {
@@ -76,30 +80,47 @@
     </style>
 </head>
 <body>
-    <h1>Check In</h1>
+    <h1>Check Out</h1>
     <div>
-        <form action="/checkIn/input" method="POST">
-            <label for="id">Id</label>
-          <input type="text" id="id" name="id"><br>
+        <form action="/checkOut/<%= data.parkingId %>/input" method="POST">
+            <label for="parkingId">Id</label>
+          <input type="text" id="parkingId" name="parkingId" value="<%= data.parkingId %>"><br>
 
           <label for="memberId">Member Id</label>
-          <input type="text" id="memberId" name="memberId" value="<%= memberId %>"><br>
+          <input type="text" id="memberId" name="memberId" value="<%= data.memberId %>"><br>
 
           <label for="vehicleId">Vehicle Id</label>
-          <input type="text" id="vehicleId" name="vehicleId" value="<%= vehicleId %>"><br>
+          <input type="text" id="vehicleId" name="vehicleId" value="<%= data.vehicleId %>"><br>
 
           <label for="buildingId">Building Id</label>
-          <select name="buildingId" id="buildingId" onchange="myfunc()">
-              <% data.forEach(datum => { %>
-                <option value="<%= datum.id %>"><%= datum.name %> </option>
-              <% }) %> 
-          </select><br>
+          <input type="text" id="buildingId" name="buildingId" value="<%= data.buildingId %>"><br>
+         
           <label for="checkIn">Check In</label>
-          <input type="text" id="checkIn" name="checkIn"><br>
+          <input type="text" id="checkIn" name="checkIn" value="<%= data.checkIn.toISOString() %>"><br>
+
+          <label for="checkOut">Check Out</label>
+          <input type="text" id="checkOut" name="checkOut" value="<%= end.toISOString() %>"><br>
+
+          <label for="discount">Discount</label>
+          <input type="text" id="discount" name="discount" value="<%= discount %>"><br>
 
           <label for="cost">Basic Cost</label>
-          <input type="text" id="cost" name="cost" value="<%= cost %>"><br>
+          <input type="text" id="cost" name="cost" value="<%= data.cost %>"><br>
+
+          <label for="totalCost">Total Cost</label>
+          <input type="text" id="totalCost" name="totalCost" value="<%= total %>"><br>
           
+          <label for="paymentMethod">Payment Method</label>
+            <select name="paymentMethod" id="paymentMethod">
+                <% if (data.Member.balance - total >= 0) { %>
+                    <option value="E-Money">E-Money</option>
+                <% } %> 
+                <option value="Cash">Cash</option>
+            </select>
+            <% if (data.Member.balance - total >= 0) { %>
+                <label for="balance">Balance</label><br>
+                <input type="text" name="balance" id="balance" value="<%= balance %>">
+            <% } %> 
           <div id="btn">
               <input id="submit-btn" type="submit" value="Submit">
               <input id="cancel-btn" type="submit" value="Cancel" formmethod="GET" formaction="/checkIn">
@@ -109,17 +130,5 @@
       </div>
 </body>
 <script>
-    const checkIn = document.getElementById('checkIn')
-    checkIn.value = new Date()
-    function myfunc() {
-        const id = document.getElementById('id')
-        let memberId = `<%= memberId %>`
-        let vehicleId = `<%= vehicleId %>`
-        let buildingId = document.getElementById('buildingId')
-        var str = buildingId.options[buildingId.selectedIndex].value;
-        let test = `${memberId.trim()}-${vehicleId.trim()}-${str.trim()}-${new Date().toISOString()}`
-        id.value = test
-
-    }
 </script>
 </html>

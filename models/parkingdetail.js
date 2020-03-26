@@ -5,6 +5,10 @@ module.exports = (sequelize, DataTypes) => {
       return this.id
     }
 
+    get parkingId() {
+      return this.parkingId
+    }
+
     get memberId() {
       return this.memberId
     }
@@ -34,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ParkingDetail.init({
+    parkingId: DataTypes.STRING,
     memberId: DataTypes.INTEGER,
     vehicleId: DataTypes.STRING,
     buildingId: DataTypes.INTEGER,
@@ -45,7 +50,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     hooks: {
       beforeCreate: (ParkingDetail, options) => {
-        ParkingDetail.checkOut = null
         ParkingDetail.paymentStatus = false
         ParkingDetail.checkIn = new Date()
       }

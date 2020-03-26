@@ -5,5 +5,6 @@ router.get('/', PDController.findAll)
 router.get('/input-member', PDController.viewMember)
 router.get('/input-member/:id/input-vehicle', PDController.viewVehicle)
 router.get('/input-member/:id/input-vehicle/:idVeh', PDController.viewAdd)
+router.post('/input', PDController.add)
 
 module.exports = router
