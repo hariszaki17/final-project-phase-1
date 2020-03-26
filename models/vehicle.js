@@ -19,6 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     model: DataTypes.STRING
   }, {
     sequelize,
+    validate: {
+      checkNull() {
+        if (this.id == '') {
+          throw new Error('Please fill blank input!')
+        }
+      }
+    },
     modelName: 'Vehicle'
   })
   Vehicle.associate = function(models) {

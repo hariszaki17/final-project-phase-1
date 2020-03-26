@@ -43,6 +43,13 @@ module.exports = (sequelize, DataTypes) => {
     cost: DataTypes.DECIMAL
   }, {
     sequelize,
+    hooks: {
+      beforeCreate: (ParkingDetail, options) => {
+        ParkingDetail.checkOut = null
+        ParkingDetail.paymentStatus = false
+        ParkingDetail.checkIn = new Date()
+      }
+    },
     modelName: 'ParkingDetail'
   })
 

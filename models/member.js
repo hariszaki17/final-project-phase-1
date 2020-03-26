@@ -28,6 +28,11 @@ module.exports = (sequelize, DataTypes) => {
     balance: DataTypes.DECIMAL
   }, {
     sequelize,
+    hooks: {
+      beforeCreate: (Member, options) => {
+        Member.balance = 0
+      }
+    },
     modelName: 'Member'
   })
   Member.associate = function(models) {
