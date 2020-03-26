@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking App</title>
+    <style>
+        #ph {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #ph td, #ph th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #ph tr:nth-child(even){background-color: #f2f2f2;}
+
+        #ph tr:hover {background-color: #ddd;}
+
+        #ph th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #ADE8EE;
+            color: white;
+        }
+        h1 {
+            font-size: 35px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+        #add {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: normal;
+            background-color: #00C339;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width:  120px;
+
+        }
+
+        #list {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .btn {
+            background-color: #00A5C0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width:  110px;
+            height: 30px;
+        }
+
+        #search {
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partial/navbar'); %>
+    <br>
+    <h1>Building</h1>
+    <% if(message) { %>
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="alert alert-primary" role="alert">
+            <%= message %>
+          </div>
+    <% } %>
+    <h2 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">List Buildings</h2>
+    <div id="list">
+        <input type="text" name="search" id="search" onkeyup="myFunction()"><br>
+        <form action="/buildings/add" method="GET">
+            <input class="btn" type="submit" value="Add Building">
+        </form>
+    </div>
+    <br><table id="ph">
+        <thead>
+            <tr>
+                <th style="text-align: center;">ID</th>
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Type</th>
+                <th style="text-align: center;">Address</th>
+                <th style="text-align: center;">Car Capacity</th>
+                <th style="text-align: center;">Motor Capacity</th>
+                <th style="text-align: center;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% result.forEach(datum => { %>
+                <tr>
+                    <td style="text-align: center;"><%= datum.id %></td>
+                    <td style="text-align: center;"><%= datum.name%></td>
+                    <td style="text-align: center;"><%= datum.type%></td>
+                    <td style="text-align: center;"><%= datum.address%></td>
+                    <td style="text-align: center;"><%= datum.carCapacity%></td>
+                    <td style="text-align: center;"><%= datum.motorCapacity%></td>
+                    <td style="text-align: center;">
+                        <form action="">
+                            <input class="btn" type="submit" value="Edit" formmethod="GET" formaction="/buildings/<%= datum.dataValues.id %>/edit">
+                            <input class="btn" type="submit" value="Delete" formmethod="GET" formaction="/buildings/<%= datum.dataValues.id %>/delete">
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+<script>
+    function myFunction() {
+        if(event.keyCode === 13) {
+            const link = document.getElementById('search').value
+            console.log(link)
+            window.location = `http://localhost:3000/buildings?search=${link}`;
+            link = ''
+        }
+    }
+</script>
+</html>

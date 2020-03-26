@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Diaz Zakariya",
+        "type": "Gold",
+        "email": "hariszaki17@gmail.com",
+        "balance": 50000,
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "name": "Safira Aziza",
+        "type": "Silver",
+        "email": "safiraziza.sa@gmail.com",
+        "balance": 10000,
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "name": "Joko Dharmono",
+        "type": "Brown",
+        "email": "masjoko87@gmail.com",
+        "balance": 15000,
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    }
+]

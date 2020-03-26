@@ -1,0 +1,11 @@
+[
+    {
+        "parkingId": 1,
+        "memberId": 1,
+        "paymentMethod": "E-Money",
+        "discount": 10,
+        "totalCost": 10800,
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    }
+]

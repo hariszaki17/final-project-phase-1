@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parking App</title>
+    <style>
+        #preview {
+            height: 600px;
+            width: 600px;
+        }
+    </style>
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" ></script>	
+  </head>
+  <body>
+    <video id="preview"></video>
+    <script>
+        let scanner = new Instascan.Scanner(
+            {
+                video: document.getElementById('preview')
+            }
+        );
+        scanner.addListener('scan', function(content) {
+            let link = `http://localhost:3000/checkOut/${content}`
+            window.open(link, "_self");
+        });
+        Instascan.Camera.getCameras().then(cameras => 
+        {
+            if(cameras.length > 0){
+                scanner.start(cameras[0]);
+            } else {
+                console.error("Error!");
+            }
+        });
+    </script>
+
+ </body>
+</html>

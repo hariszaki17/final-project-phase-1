@@ -1,0 +1,29 @@
+[
+    {
+        "name": "MCC",
+        "type": "Premium",
+        "address": "Jl. Salemba Raya No. 30 Jakarta, 10430 Indonesia",
+        "carCapacity": 3,
+        "motorCapacity": 5,
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "name": "Meridien Tower",
+        "type": "Standard",
+        "address": "Jl. Jamika No. 41A, Jl. Jamika No. 41A Bandung",
+        "carCapacity": 10,
+        "motorCapacity": 20,
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "name": "Mid Plaza",
+        "type": "Standard",
+        "address": "Jl. Ancol Barat III No. 1-2, RT.1/RW.3, Ancol, Pademangan",
+        "carCapacity": 20,
+        "motorCapacity": 35,
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    }
+]

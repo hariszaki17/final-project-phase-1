@@ -1,0 +1,72 @@
+[
+    {
+        "id": "B7733IG",
+        "type": "Mobil",
+        "model": "Pick Up",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "id": "B0987MN",
+        "type": "Motor",
+        "model": "Matic",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "id": "B9823YU",
+        "type": "Motor",
+        "model": "Bebek",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "id": "B7636IK",
+        "type": "Mobil",
+        "model": "Sedan",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "id": "F3154OP",
+        "type": "Motor",
+        "model": "Matic",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "id": "B0973IL",
+        "type": "Motor",
+        "model": "Bebek",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "id": "B7744PW",
+        "type": "Mobil",
+        "model": "Mini Bus",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "id": "B1320GH",
+        "type": "Mobil",
+        "model": "sedan",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "id": "F9875LA",
+        "type": "Mobil",
+        "model": "Mini Bus",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    },
+    {
+        "id": "F6221OS",
+        "type": "Motor",
+        "model": "Bebek",
+        "createdAt": "2020-03-25T21:39:18+07:00",
+        "updatedAt": "2020-03-25T23:39:18+07:00"
+    }
+]
